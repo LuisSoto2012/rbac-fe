@@ -1,0 +1,28 @@
+@import "../../scss/index.scss";
+
+.auth {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  //   background: radial-gradient(#4cceb2, #2f8fd8);
+  background: radial-gradient(ellipse at bottom, #5091dd 0%, #030617 100%);
+  //   background-color: $background-green-light;
+  //   background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em,
+  //     3.5em 11em, 100% 100%;
+  //   background-repeat: repeat;
+
+  img {
+    width: 180px;
+  }
+
+  .container-form {
+    width: 400px;
+    background-color: $background-light;
+    padding: 30px 50px;
+    border: 1px solid $border-grey;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+}
