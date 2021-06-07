@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { ToastContainer } from "react-toastify";
-import Auth from "./pages/Auth";
+import { ToastContainer, useToast } from "react-toastify";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import routes from "./routes/routes";
 import AuthProvider from "./providers/AuthProvider";
-import Navigation from "./routes/Navigation";
 
 export default function App() {
   const [auth, setAuth] = useState(undefined);
   return (
     <AuthProvider>
-      {!auth ? <Auth /> : <Navigation />}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -20,6 +19,23 @@ export default function App() {
         draggable
         pauseOnHover
       />
+      <Router>
+        <Switch>
+          {routes.map((route, index) => (
+            <RouteWithSubRoutes key={index} {...route} />
+          ))}
+        </Switch>
+      </Router>
     </AuthProvider>
+  );
+}
+
+function RouteWithSubRoutes(route) {
+  return (
+    <Route
+      path={route.path}
+      exact={route.exact}
+      render={(props) => <route.component routes={route.routes} {...props} />}
+    />
   );
 }

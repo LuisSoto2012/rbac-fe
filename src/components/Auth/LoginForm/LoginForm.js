@@ -72,8 +72,6 @@ export default function LoginForm() {
       setUserLogged(jwtDecode(accessToken));
       setIsLogged(true);
       toast.success("Login correcto!");
-
-      // window.location.href = "/admin";
     }
   };
 
@@ -89,6 +87,7 @@ export default function LoginForm() {
       toast.error(result.message);
     } else {
       toast.success("Usted ha ingresado como " + inputs.roleName);
+      window.location.href = "/";
     }
   };
 
